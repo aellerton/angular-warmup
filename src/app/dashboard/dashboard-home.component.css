@@ -1,0 +1,13 @@
+.left-rail {
+  background: #8DB8FF; 
+  background: #C3DDFF;
+}
+
+ul {
+  padding: 4px;
+}
+
+ul li {
+  font-size: 0.8rem;
+  padding:2px 2px 4px 2px;
+}

@@ -1,0 +1,11 @@
+$foo-color: #f22;
+
+body {
+  padding-top: 15rem; // doesn't work
+  color: $foo-color; // compiles but this is never used
+}
+/*
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}*/

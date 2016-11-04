@@ -1,0 +1,12 @@
+<nav class="navbar navbar-full navbar-dark bg-primary">
+  <a class="navbar-brand" routerLink="/dashboard" >Dashboard</a>
+
+  <div class="nav navbar-nav float-xs-right">
+    <a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Main</a>
+    <a class="nav-item nav-link" routerLink="/dashboard/profile" routerLinkActive="active">Profile</a>
+    <a class="nav-item nav-link" routerLink="/logout" routerLinkActive="active">Logout</a>
+
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
