@@ -30,8 +30,9 @@ import { PageNotFoundComponent } from './pagenotfound.component';
         children: [
               { path: 'about', component: AboutComponent },
               //{ path: 'login', component: LoginComponent },
-              { path: 'welcome', component: HomeComponent},
-              { path: '', redirectTo: '/welcome', pathMatch: 'full'  },
+              //{ path: 'welcome', component: HomeComponent},
+              //{ path: '', redirectTo: '/welcome', pathMatch: 'full'  },
+              { path: '', component: HomeComponent, pathMatch: 'full'  },
             ]
       },
       // { 
