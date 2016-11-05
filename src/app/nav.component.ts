@@ -9,7 +9,7 @@ import { AuthService }      from './auth/auth.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  title = 'Angular 2 Stormpath Demo';
+  title = 'Angular 2 Demo';
 
   constructor(public authService: AuthService, public router: Router) { }
 

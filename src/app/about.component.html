@@ -1,35 +1,64 @@
 <div class="container mt-3">
 <div class="row">
-<h2>About</h2>
-<p>The first thing I always want to see is a site that does the following:</p>
-<ul>
-  <li>Shows "brochure" content at the root including "about" *</li>
-  <li>Shows how a user can log in</li>
-  <li>Shows some kind of dashboard when the user is logged in</li>
-  <li>Let's the user log out, and proves that the dashboard is no longer accessible.</li>
-</ul>
+<div class="col-xs-6 col-lg-4">
+  <h2>About</h2>
+  <p>When understanding a new framework I always want to see the following:</p>
+  <ul>
+    <li>A "brochure" site at the root including "about" *</li>
+    <li>Let a user log in</li>
+    <li>After login, see some kind of dashboard</li>
+    <li>Let the user log out, and see that the dashboard is no longer accessible.</li>
+  </ul>
 
-<div class="alert alert-info" role="alert">
-  <strong>* Note</strong> 
-  I'm not saying that static brochure content "should" be provided by an 
-  angular site. I'm still debating that myself. What I'm saying is that I like to see how that's done
-  in any new framework.
 </div>
 
-<p>I followed these steps:</p>
-<ol>
-  <li>Read the angular quickstart</li>
-  <li>Read the [router guide](https://angular.io/docs/ts/latest/guide/router.html) - important because it covers "guarded" routes</li>
-  <li>Read 
-    <a href="https://medium.com/@blacksonic86/angular-2-authentication-revisited-611bf7373bf9#.b1pldpbd1">
-    medium piece on angular with authentication
-    </a> with a back-end (albeit a mocked out one)</li>
-  <li>Start with a new <code>ng-cli</code>-generated project</li>
-  <li>Study the plunkr code again and again, re-reading above links, integrating pieces as I went</li>
-</ol>
 
-<p>At this point the basic concept works, but the "logging in" is entirely mocked up, no back-end at all.</p>
+<div class="col-xs-6 col-lg-4">
+  <h2>How did I get here?</h2>
 
-<p>TODO: integrate stormpath.</p>
+  <p>I followed these steps:</p>
+  <ol>
+    <li>Build a basic working site with a "pretend" login.
+      <ul>
+        <li>Read the <a href="https://angular.io/docs/ts/latest/guide/router.html">router guide</a>
+        - important because it covers "guarded" routes</li>
+        <li>Study the plunkr on the above page. It has a lot going on.</li>
+        <li>Start with a new <code>ng-cli</code>-generated project</li>
+        <li>Study the plunkr code again and again, re-reading above links, integrating pieces as I went</li>
+      </ul>
+    </li>
+
+    <li>Added a basic HTTP service</li>
+      <ul>
+        <li>I used <a href="https://github.com/auth0-blog/nodejs-jwt-authentication-sample">this sample service</a>
+        which is mentioned in the Medium article below. It's a nice simple way to prove an API call with no auth 
+        required, create faux users, authenticate users and prove a restricted API call.</li>
+        <li>On the brochure I added callign the unauthenticated API just to prove it works</li>
+      </ul>
+    <li>Call a (pretend) back-end to authenticate and use JWTs.
+      <ul>
+        <li>Read 
+          <a href="https://medium.com/@blacksonic86/angular-2-authentication-revisited-611bf7373bf9#.b1pldpbd1">
+          medium piece on angular with authentication
+          </a> with a back-end (albeit a mocked out one)
+        </li>
+      </ul>
+    </li>
+    <li>Call a real back-end to authenticate.</li>
+  </ol>
+
+</div>
+
+<div class="col-xs-6 col-lg-4">
+  <h2>A note about static "brochure" sites</h2>
+
+  <p><strong>* </strong> 
+    I'm not saying that static brochure content "should" be provided by an 
+    angular site. So far I think a brochure site should be outside of Angular,
+    and I'm a fan of Jekyll.</p> 
+    
+  <p>That said, I think seeing how the non-logged-in part of a site works is a key
+    part of understanding a new framework.</p>
+</div>
 </div>
 </div>

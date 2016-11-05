@@ -23,6 +23,7 @@ import { PageNotFoundComponent } from './pagenotfound.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginRoutingModule }   from './login-routing.module';
 import { NavComponent } from './nav.component';
+import { RandomQuoteComponent } from './quotes/random-quote.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NavComponent } from './nav.component';
     PageNotFoundComponent,
     AboutComponent,
     LoginComponent,
-    NavComponent
+    NavComponent,
+    RandomQuoteComponent
     // ProfileComponent,
     // DashboardComponent,
     // DashboardHomeComponent

@@ -1,0 +1,10 @@
+blockquote::before { 
+  content: "\201C";
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 8rem;
+  color: gray;
+  position:absolute;
+  top:-1rem;
+  left:0;
+  opacity:0.2;
+}

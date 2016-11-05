@@ -1,0 +1,1 @@
+devd --debug /api/=http://localhost:3001/api /sessions/=http://localhost:3001/sessions /users=http://localhost:3001/users /=http://localhost:4200

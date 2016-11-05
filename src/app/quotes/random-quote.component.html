@@ -1,0 +1,15 @@
+<div class="text-xs-center mt-2 mb-2">
+
+  <blockquote>
+    <p *ngIf="!quote" class="mb-0 text-muted">Loading...</p>
+    <p *ngIf="quote" class="{{running ? 'text-muted' : '' }}" style="remheight: 3em">
+      <button (click)="another()" [disabled]="running" class="btn btn-secondary btn-sm float-xs-right">Another</button>
+      &ldquo;{{quote.text}}&rdquo;</p>
+    <!--<footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>-->
+    <footer *ngIf="quote" class="blockquote-footer">
+      <span *ngIf="quote.by">{{quote.by}}</span>
+      <span *ngIf="!quote.by">Anonymous</span>
+    </footer>
+  </blockquote>
+
+</div>

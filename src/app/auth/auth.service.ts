@@ -13,6 +13,9 @@ export class AuthService {
   redirectUrl: string;
 
   login(): Observable<boolean> {
+    // var headers = new Headers();
+    // headers.append('Content-Type', 'application/json; charset=utf-8');
+
     return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
   }
 
