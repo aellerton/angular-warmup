@@ -2,11 +2,11 @@
 <div class="row">
 
 <div class="col-xs-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 dialog mt-1">
-  <h4 *ngIf="!authService.isLoggedIn" class="text-xs-center">Log in: Fake</h4>
+  <h4 *ngIf="!authService.isLoggedIn()" class="text-xs-center">Log in: Fake</h4>
   <p>{{message}}</p>
   <p>
-    <button (click)="pretendLogin()" *ngIf="!authService.isLoggedIn" class="btn btn-outline-primary btn-block" >Login</button>
-    <button (click)="logout()" *ngIf="authService.isLoggedIn" class="btn btn-outline-warning btn-block">Logout</button>
+    <button (click)="pretendLogin()" *ngIf="!authService.isLoggedIn()" class="btn btn-outline-primary btn-block" >Login</button>
+    <button (click)="logout()" *ngIf="authService.isLoggedIn()" class="btn btn-outline-warning btn-block">Logout</button>
   </p>
   <p>
     <a routerLink="/" class="btn btn-outline-secondary">Home</a>
@@ -16,7 +16,7 @@
 </div>
 </div>
 
-<div *ngIf="!authService.isLoggedIn" class="row">
+<div *ngIf="!authService.isLoggedIn()" class="row">
 <div class="col-xs-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 dialog mt-1">
   <form (submit)="login($event, username.value, password.value)" >
   <fieldset [disabled]="running">

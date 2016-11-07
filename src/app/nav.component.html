@@ -4,9 +4,9 @@
   <div class="nav navbar-nav float-xs-right">
     <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
     <a class="nav-item nav-link" routerLink="/about" routerLinkActive="active">About</a>
-    <a *ngIf="!authService.isLoggedIn" class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-    <a *ngIf="authService.isLoggedIn" class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-    <a *ngIf="authService.isLoggedIn" class="nav-item nav-link" routerLink="/logout" routerLinkActive="active">Logout</a>
+    <a *ngIf="!authService.isLoggedIn()" class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+    <a *ngIf="authService.isLoggedIn()" class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a *ngIf="authService.isLoggedIn()" class="nav-item nav-link" routerLink="/logout" routerLinkActive="active">Logout</a>
 
   </div>
 </nav>

@@ -26,10 +26,10 @@ export class LoginComponent {
     this.running = true;
 
     this.authService.pretendLogin().subscribe((v) => {
-      console.log("login.component:pretendLogin, subscribe param=", v, "isLoggedIn=", this.authService.isLoggedIn)
+      console.log("login.component:pretendLogin, subscribe param=", v, "isLoggedIn=", this.authService.isLoggedIn())
       this.running = false;
       this.setMessage();
-      if (this.authService.isLoggedIn) {
+      if (this.authService.isLoggedIn()) {
         // Get the redirect URL from our auth service
         // If no redirect has been set, use the default
         let redirect = this.authService.redirectUrl ? this.authService.redirectUrl : Urls.defaultAfterLogin;
@@ -66,11 +66,11 @@ export class LoginComponent {
     this.running = false;
     this.setMessage();
 
-    let token = localStorage.getItem('auth_token')
-    console.log("login.component:loginSuccess(): localStorage.getItem auth_token=", token, "isLoggedIn=", this.authService.isLoggedIn)
+    let token = localStorage.getItem('id_token')
+    console.log("login.component:loginSuccess(): localStorage.getItem id_token=", token, "isLoggedIn=", this.authService.isLoggedIn())
 
     console.log("login.component:loginSuccess", this.authService)
-    if (this.authService.isLoggedIn) {
+    if (this.authService.isLoggedIn()) {
       
 
       // Get the redirect URL from our auth service

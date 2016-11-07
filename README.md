@@ -93,3 +93,11 @@ Prove that a restricted ("logged in") API call works:
     Chuck Norris once got bit by a rattle snake........ After three days of pain and agony ..................the rattle snake died
 
 
+## Very useful
+
+JWT's are simple in concept but I was fortunate to find this excellent
+module that saved me a lot of work:
+
+https://github.com/auth0/angular2-jwt
+
+

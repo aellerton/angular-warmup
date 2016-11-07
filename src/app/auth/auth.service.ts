@@ -11,6 +11,8 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 
+import { JwtHelper, tokenNotExpired } from 'angular2-jwt';
+
 @Injectable()
 export class AuthService {
   private sessionCreateUrl = "/sessions/create";
@@ -34,8 +36,10 @@ export class AuthService {
   //    an "uh-oh you need to log in" screen.
   private authenticationFailed: Subject<any> = new Subject<any>()
 
+  private jwtHelper = new JwtHelper();
+
   // TODO: delete
-  isLoggedIn: boolean = false;
+  //isLoggedIn: boolean = false;
 
   // store the URL so we can redirect after logging in
   // TODO: should this be a parameter to login()?
@@ -44,9 +48,12 @@ export class AuthService {
   constructor(private http: Http) { 
 
     this.authenticationStarted.subscribe((id_token) => {
+      if (id_token) {
+        console.log("decoded jwt:", this.jwtHelper.decodeToken(id_token));
+      }
       console.log("authenticationStarted event", id_token)
-      localStorage.setItem('auth_token', id_token);
-      this.isLoggedIn = true;
+      localStorage.setItem('id_token', id_token);
+      //this.isLoggedIn = true;
       this.authenticationOk.next(id_token);
     })
 
@@ -63,19 +70,24 @@ export class AuthService {
     })
   }
 
+  isLoggedIn(): boolean {
+    // TODO: put some cache logic around this, like do the real check at most once a minute.
+    // TODO: for that matter, put a timer to send an "expire" event.
+    return tokenNotExpired();
+  }
   pretendLogin(): Observable<boolean> {
     // var headers = new Headers();
     // headers.append('Content-Type', 'application/json; charset=utf-8');
 
     return Observable.of(true).delay(1000).do(val => {
       // fake the "housekeeping" to indicate logged in
-      this.isLoggedIn = val
+      // TODO this.isLoggedIn = val
       this.authenticationOk.next();
     });
   }
 
   pretendLogout(): void {
-    this.isLoggedIn = false;
+    // TODO this.isLoggedIn = false;
     this.authenticationEnded.next();
   }
 
@@ -116,7 +128,7 @@ export class AuthService {
       // .map((res) => {
       //   console.log("finished login", res)
       //   if (res.success) {
-      //     localStorage.setItem('auth_token', res.id_token);
+      //     localStorage.setItem('id_token', res.id_token);
       //     this.isLoggedIn = true;
       //   }
 
@@ -127,8 +139,8 @@ export class AuthService {
   }
 
   logout(): void {
-    this.isLoggedIn = false;
-    localStorage.removeItem('auth_token');
+    //this.isLoggedIn = false;
+    localStorage.removeItem('id_token');
     this.authenticationEnded.next();
   }
 
@@ -138,16 +150,16 @@ export class AuthService {
     //console.log("auth.service:extractData 2: json-res=", res2)
     if (res2.id_token) {
       this.authenticationStarted.next(res2.id_token);
-      // localStorage.setItem('auth_token', res2.id_token);
+      // localStorage.setItem('id_token', res2.id_token);
       // this.isLoggedIn = true;
       // this.authenticationOk.next(res2.id_token);
     } else {
       console.log("auth.service:extractData: fail: hmm res2 not success")
     }
-    console.log("auth.service:extractData 3: isLoggedIn=", this.isLoggedIn)
+    console.log("auth.service:extractData 3: id_token=", res2.id_token)
     //console.log("auth.service:extractData 4: this", this)
     
-    return this.isLoggedIn;
+    return this.isLoggedIn();
   }
 
   private handleError (error: Response | any) {

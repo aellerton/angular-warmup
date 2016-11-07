@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule }   from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 //import 'rxjs/add/operator/map';
 //import 'rxjs/add/operator/toPromise';
@@ -24,6 +25,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { LoginRoutingModule }   from './login-routing.module';
 import { NavComponent } from './nav.component';
 import { RandomQuoteComponent } from './quotes/random-quote.component';
+import { ProtectedQuoteComponent } from './quotes/protected-quote.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { RandomQuoteComponent } from './quotes/random-quote.component';
     AboutComponent,
     LoginComponent,
     NavComponent,
-    RandomQuoteComponent
+    RandomQuoteComponent,
+    ProtectedQuoteComponent
     // ProfileComponent,
     // DashboardComponent,
     // DashboardHomeComponent
@@ -47,7 +50,7 @@ import { RandomQuoteComponent } from './quotes/random-quote.component';
     DashboardModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [AUTH_PROVIDERS],
   //providers: [{provide: APP_BASE_HREF, useValue: '/dashboard'}],
   bootstrap: [AppComponent]
 })
