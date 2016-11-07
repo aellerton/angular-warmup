@@ -46,7 +46,7 @@ export class QuotesService {
   getTimeAsQuote(): Observable<Quote> {
     return new Observable<Quote>((observer: Subscriber<Quote>) => {
       setTimeout(() => {
-        let q=new Quote(`The time is ${new Date().toString()}`, "A Time Lord");
+        let q=new Quote(`The time is ${new Date().toString()}`, "Time Lord");
         console.log(q);
         observer.next(q)
       }, 1000);
