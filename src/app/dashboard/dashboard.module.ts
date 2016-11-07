@@ -1,6 +1,9 @@
 import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
 
+//import { CoreModule }       from '../core/core.module';
+import { QuotesModule } from '../quotes/quotes.module';
+
 import { DashboardComponent } from './dashboard.component';
 import { DashboardHomeComponent } from './dashboard-home.component';
 import { ProfileComponent } from './profile.component';
@@ -11,6 +14,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 @NgModule({
   imports: [
     CommonModule,
+    QuotesModule,
     DashboardRoutingModule
   ],
   declarations: [

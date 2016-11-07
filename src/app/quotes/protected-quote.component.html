@@ -1,3 +1,19 @@
-<p>
-  protected-quote works!
-</p>
+
+<div class=protected>
+  <div class=inner>
+
+    <blockquote>
+      <p *ngIf="!quote" class="mb-0 text-muted">Loading...</p>
+      <p *ngIf="quote" class="{{running ? 'text-muted' : '' }}" style="remheight: 3em">
+        <button (click)="another()" [disabled]="running" class="btn btn-secondary btn-sm float-xs-right">Another</button>
+        &ldquo;{{quote.text}}&rdquo;</p>
+      <footer *ngIf="quote" class="blockquote-footer">
+        <span *ngIf="quote.by">{{quote.by}}</span>
+        <span *ngIf="!quote.by">Anonymous</span>
+      </footer>
+    </blockquote>
+  </div>
+</div>
+
+<div style="margin-top:1em; color: #888; font-size: 80%">
+{{quote|json}}</div>

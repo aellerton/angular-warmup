@@ -13,7 +13,7 @@ export class LoginComponent {
   running: boolean = false;
   message: string;
 
-  constructor(public authService: AuthService, public router: Router) {
+  constructor(private authService: AuthService, public router: Router) {
     this.setMessage();
   }
 

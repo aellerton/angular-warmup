@@ -1,12 +1,15 @@
-<nav class="navbar navbar-full navbar-dark bg-primary">
+<nav class="navbar navbar-full navbar-dark rem-bg-primary" style="background: #3F403E">
   <a class="navbar-brand" routerLink="/dashboard" >Dashboard</a>
 
   <div class="nav navbar-nav float-xs-right">
     <a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Main</a>
-    <a class="nav-item nav-link" routerLink="/dashboard/profile" routerLinkActive="active">Profile</a>
+    <a class="nav-item nav-link" routerLink="/dashboard/profile" routerLinkActive="active">Profile
+      <img alt="avatar" src="http://placekitten.com/g/24/24">
+    </a>
     <a class="nav-item nav-link" routerLink="/logout" routerLinkActive="active">Logout</a>
-
+    
   </div>
 </nav>
-
+<div class="" style="background: #eee">
 <router-outlet></router-outlet>
+</div>

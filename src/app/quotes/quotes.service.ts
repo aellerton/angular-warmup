@@ -3,6 +3,8 @@ import { Http, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
 import { Subscriber }     from 'rxjs/Subscriber';
 
+import { AuthHttp } from 'angular2-jwt';
+
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 // import 'rxjs/add/operator/debounceTime';
@@ -19,7 +21,7 @@ export class QuotesService {
   private randomQuoteUrl = '/api/random-quote';
   private protectedRandomQuoteUrl = '/api/protected/random-quote';
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private authHttp: AuthHttp) { }
 
   getRandomQuote(): Observable<Quote> {
     if (Math.random() < this.timePercentage) {
@@ -38,8 +40,12 @@ export class QuotesService {
   // getProtectedRandomRemoteQuote returns a "protected" quote, meaning only an 
   // authorised user can access it. Without auth a 401 will be returned. 
   getProtectedRandomRemoteQuote(): Observable<Quote> {
-    return this.http.get(this.protectedRandomQuoteUrl)
+    return this.authHttp.get(this.protectedRandomQuoteUrl)
                     .map(this.extractData)
+                    .map((data: any) => {
+                      data.protected=true
+                      return data;
+                    })
                     .catch(this.handleError);
   }
 

@@ -1,0 +1,22 @@
+.protected {
+  background: repeating-linear-gradient(
+    135deg,
+    #3F403E,
+    #3F403E 10px,
+    #FFD84D 10px,
+    #FFD84D 20px/*,
+    black 10px,
+    #465298 10px,
+    #465298 20px*/
+  );
+  padding: 8px;
+}
+
+.inner {
+  background: #ddd;
+  padding: 8px;
+}
+
+.inner pre {
+  margin: 0;
+}

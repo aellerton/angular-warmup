@@ -70,6 +70,10 @@ export class AuthService {
     })
   }
 
+  decodeToken(): any {
+    return this.jwtHelper.decodeToken(localStorage.getItem('id_token'));
+  }
+
   isLoggedIn(): boolean {
     // TODO: put some cache logic around this, like do the real check at most once a minute.
     // TODO: for that matter, put a timer to send an "expire" event.
