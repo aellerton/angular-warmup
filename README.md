@@ -2,6 +2,8 @@
 
 Angular 2 starter site with brochure area, login and user dashboard.
 
+![Landing page screenshot](doc/20161108T13553-animated.gif)
+
 ## Mission
 
 As a developer I have two modes:

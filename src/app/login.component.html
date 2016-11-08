@@ -15,7 +15,7 @@
 
 <div *ngIf="!authService.isLoggedIn()" class="row">
 <div class="col-xs-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 dialog mt-1">
-  <form (submit)="login($event, username.value, password.value)" >
+  <form (submit)="login($event, username.value, password.value)" autocomplete="off">
   <fieldset [disabled]="running">
 
     <h4 class="text-xs-center">Log In</h4>
