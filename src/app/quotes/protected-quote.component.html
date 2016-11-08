@@ -5,15 +5,14 @@
     <blockquote>
       <p *ngIf="!quote" class="mb-0 text-muted">Loading...</p>
       <div *ngIf="quote" class="{{running ? 'text-muted' : '' }}" style="remheight: 3em">
+        <button (click)="another()" [disabled]="running" class="btn btn-secondary btn-sm float-xs-right">Hit Me Again</button>
+        <button (click)="showStructure = !showStructure" [disabled]="running" class="btn btn-secondary btn-sm float-xs-right">Toggle Breakdown</button>
         <pre *ngIf="showStructure">{{quote|json}}</pre>
         <span *ngIf="!showStructure">&ldquo;{{quote.text}}&rdquo;</span>
       </div> 
       <footer *ngIf="quote" class="blockquote-footer text-xs-right">
         <span *ngIf="quote.by">{{quote.by}}</span>
         <span *ngIf="!quote.by">Anonymous</span>
-        <button (click)="another()" [disabled]="running" class="btn btn-secondary btn-sm rem-float-xs-right">Give Me More</button>
-        <button (click)="showStructure = !showStructure" [disabled]="running" class="btn btn-default btn-sm rem-float-xs-right">Break it down</button>
-
       </footer>
     </blockquote>
   </div>

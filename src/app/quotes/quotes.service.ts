@@ -60,12 +60,26 @@ export class QuotesService {
   }
 
   private extractData(res: Response): Quote {
-    // let body = res.json();
-    // return body.data || { };
-    return new Quote(
-      res.text(),
-      'Chuck Norris Fan' // the service doesn't give an attribution
-      );
+    let ct = res.headers.get("Content-Type")
+
+    if (ct.toLowerCase().indexOf("application/json") >= 0) {
+      // assume it's the right 'shape' for Quote for now
+      return res.json()
+    }
+
+    // The default back-end server returns content-type ``text/html`` even though it
+    // should be plain text. However, if the user isn't running a back-end server
+    // then invoking the quotes endpoint will invoke Angular itself, also yielding HTML.
+    // Differentiate by looking for a "<" at the start.
+    let t = res.text()
+
+    if (t.match(/^\s*</)) {
+      return new Quote(
+        "Uh-oh. Looks like you're not running a real quote server back-end?",
+        "The Angular Police")
+    }
+    
+    return new Quote(t, 'Chuck Norris Fan') // if here, the service doesn't give an attribution
   }
 
   private handleError (error: Response | any) {

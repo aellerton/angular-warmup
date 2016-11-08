@@ -14,17 +14,10 @@ import { PageNotFoundComponent } from './pagenotfound.component';
 @NgModule({
   imports: [
     RouterModule.forRoot([
-      {
-        path: 'dashboard',
+      { path: 'dashboard',
         loadChildren: 'app/dashboard/dashboard.module#DashboardModule',
         canLoad: [AuthGuard]
       },
-      // {
-      //   path: '',
-      //   redirectTo: '/about', // TODO
-      //   pathMatch: 'full'
-      // },
-
       { path: '', 
         component: NavComponent,
         children: [
@@ -35,20 +28,9 @@ import { PageNotFoundComponent } from './pagenotfound.component';
               { path: '', component: HomeComponent, pathMatch: 'full'  },
             ]
       },
-      // { 
-      //   path: 'about',
-      //   component: AboutComponent
-      // },
-      // ,
-      // {
-      //   path: 'crisis-center',
-      //   loadChildren: 'app/crisis-center/crisis-center.module#CrisisCenterModule',
-      //   data: {
-      //     preload: true
-      //   }
-      // }
-      { path: '**', component: PageNotFoundComponent },
-
+      { path: '**', 
+        component: PageNotFoundComponent 
+      },
     ],
     { preloadingStrategy: PreloadSelectedModules })
   ],
