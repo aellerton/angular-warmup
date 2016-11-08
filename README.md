@@ -1,6 +1,6 @@
 # Angular 2 Demo
 
-Basic starter site with brochure area, login and user dashboard.
+Angular 2 starter site with brochure area, login and user dashboard.
 
 ## Mission
 
