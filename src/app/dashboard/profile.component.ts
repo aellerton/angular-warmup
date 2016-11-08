@@ -12,10 +12,11 @@ export class ProfileComponent implements OnInit {
   data = {foo: 'bar', 'honk':'twonk'};
 
   constructor(private authService: AuthService) {
-    this.data = this.authService.decodeToken();
+    
    }
 
   ngOnInit() {
+    this.data = this.authService.getDecodedToken();
   }
 
 }

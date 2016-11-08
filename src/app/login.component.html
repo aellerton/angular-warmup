@@ -1,27 +1,24 @@
 <div class="container mt-3">
-<div class="row">
 
+
+<div *ngIf="authService.isLoggedIn()" class="row">
 <div class="col-xs-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 dialog mt-1">
-  <h4 *ngIf="!authService.isLoggedIn()" class="text-xs-center">Log in: Fake</h4>
+
   <p>{{message}}</p>
   <p>
-    <button (click)="pretendLogin()" *ngIf="!authService.isLoggedIn()" class="btn btn-outline-primary btn-block" >Login</button>
     <button (click)="logout()" *ngIf="authService.isLoggedIn()" class="btn btn-outline-warning btn-block">Logout</button>
   </p>
-  <p>
-    <a routerLink="/" class="btn btn-outline-secondary">Home</a>
-    <a routerLink="/about" class="btn btn-outline-secondary">About</a>
-  </p>
+</div>
+</div>
 
-</div>
-</div>
+
 
 <div *ngIf="!authService.isLoggedIn()" class="row">
 <div class="col-xs-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 dialog mt-1">
   <form (submit)="login($event, username.value, password.value)" >
   <fieldset [disabled]="running">
 
-    <h4 class="text-xs-center">Log in: HTTP API</h4>
+    <h4 class="text-xs-center">Log In</h4>
     <p>{{message}}</p>
     <div class="form-group">
       <label for="username" class="sr-only">Email address</label>
@@ -39,15 +36,23 @@
     </div>-->
     <button [disabled]="running" class="btn btn-outline-primary btn-block" type="submit">Sign in</button>
   </fieldset>
-  </form>
 
-  <div class="mt-2">
-    <a (click)="username.value='gonto'; password.value='gonto'" class="btn btn-outline-secondary">Use default "good" user</a>
+  <hr>
+  <div class="mt-1 sneaky-tools">
+    Sneaky Tools
+    <a (click)="username.value=''; password.value=''; false" class="" href="">Empty user</a>
+    <a (click)="username.value='gonto'; password.value='gonto'; false" class="" href="">"good" user</a>
+    <a routerLink="/" class="">Home</a>
+    <a routerLink="/about" class="">About</a>
   </div>
+  </form>
 </div>
 </div>
 
+
+<div class="debug-info">
+<h3>Debug</h3>
 <pre>Running={{running}}
 Message={{message}}</pre>
-
+</div>
 </div>

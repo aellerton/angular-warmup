@@ -1,0 +1,18 @@
+.left-rail {
+  background: #8DB8FF; 
+  background: #C3DDFF;
+  background: #006C90;
+  color: #FFD84D;
+
+  background: #AAA;
+  color: black;
+}
+
+ul {
+  padding: 4px;
+}
+
+ul li {
+  font-size: 0.8rem;
+  padding:2px 2px 4px 2px;
+}

@@ -17,10 +17,14 @@ export class LoginComponent {
     this.setMessage();
   }
 
+  // TODO: legacy ... remove?
   setMessage() {
-    this.message = 'You are currently logged ' + (this.authService.isLoggedIn ? 'in' : 'out');
+    this.message = this.authService.isLoggedIn() ? 
+      `You are currently logged in as ${this.authService.getUsername()}`
+      : 'You are not logged in';
   }
 
+/*
   pretendLogin() {
     this.message = 'Trying to log in ...';
     this.running = true;
@@ -45,7 +49,7 @@ export class LoginComponent {
         this.router.navigate([redirect], navigationExtras);
       }
     });
-  }
+  }*/
 
   logout() {
     this.authService.logout();
@@ -53,23 +57,24 @@ export class LoginComponent {
   }
 
   login(event, username, password) {
-    event.preventDefault(); // needed?
+    event.preventDefault(); // TODO needed?
     this.running = true;
-    console.log("go twonk", username, password);
+    //console.log("go twonk", username, password);
     //setTimeout(() => this.running=false, 1000);
 
     this.authService.login(username, password).subscribe(v=>this.loginSuccess(v), e=>this.loginFailure(e))
   }
   
   loginSuccess(v) {
-    console.log("login.component:loginSuccess(): subscribe 1, v: ", v)
+    //console.log("login.component:loginSuccess(): subscribe 1, v: ", v)
     this.running = false;
     this.setMessage();
 
     let token = localStorage.getItem('id_token')
-    console.log("login.component:loginSuccess(): localStorage.getItem id_token=", token, "isLoggedIn=", this.authService.isLoggedIn())
+    
+    // console.log("login.component:loginSuccess(): localStorage.getItem id_token=", token, "isLoggedIn=", this.authService.isLoggedIn())
+    // console.log("login.component:loginSuccess", this.authService)
 
-    console.log("login.component:loginSuccess", this.authService)
     if (this.authService.isLoggedIn()) {
       
 

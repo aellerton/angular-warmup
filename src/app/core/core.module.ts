@@ -7,7 +7,6 @@ import { RouterModule }   from '@angular/router';
 
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 //import { CoreComponent } from './core.component';
-import { QuotesModule } from '../quotes/quotes.module';
 
 // import { RandomQuoteComponent } from '../quotes/random-quote.component';
 // import { ProtectedQuoteComponent } from '../quotes/protected-quote.component';

@@ -1,6 +1,21 @@
 <div class="container">
-  <p>
-  profile works!
-  <code>{{data|json}}</code>
-</p>
+  <h3>Profile</h3>
+  <h4>Raw JWT</h4>
+  <pre>{{data|json}}</pre>
+
+  <table class='table'>
+  <tr><th>User</th><td>{{data.username}}</td></tr>
+  <tr><th>Issuer</th><td>{{data.iss | ifEmpty:"(Not specified)"}}</td></tr>
+  <tr><th>Issued At Time</th><td>
+    {{data.iat | unixTimestamp | date:"medium"}}
+    <small>({{data.iat| ifEmpty:"Not specified"}})</small>
+    <span class="tag tag-default">"Medium" Date</span>
+  </td></tr>
+  <tr><th>Expiry Time</th><td>
+    {{data.exp | unixTimestamp | date:"short"}}
+    <small>({{data.exp| ifEmpty:"Not specified"}})</small>
+    <span class="tag tag-default">"Short" Date</span>
+  </td></tr>
+  </table>
+
 </div>

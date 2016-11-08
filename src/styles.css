@@ -1,4 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 .dashboard-widget {
-  background: #fff;
+  border: 1px solid #aaa;
+  padding: 4px;
+}
+
+.sneaky-tools {
+  font-size: 0.7rem;
+}
+.sneaky-tools a {
+  text-decoration: underline;
+  color: blue;
+  padding: 0 0.2rem;
+  border-right: 1px solid #aaa;
+}
+.sneaky-tools a:hover {
+  color: orange;
+}
+
+.debug-info {
+  margin-top: 2rem;
+  padding: 1rem;
+  color: #AAA;
+  border-top: 1px solid #AAA;
+  font-size: 1rem;
+}
+
+.debug-info pre {
+  color: #AAA;
 }

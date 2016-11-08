@@ -1,41 +1,62 @@
-<div class="row">
-<div class="col-xs-3 col-md-2 col-xl-1 left-rail" style="height: 100vh">
-  
-  <ul class="list-unstyled">
-    <li>Lorem </li>
-    <li>Consectetur </li>
-    <li>Integer </li>
-    <li>Facilisis </li>
-    <li>Nulla 
-      <ul>
-        <li>Phasellus </li>
-        <li>Purus </li>
-        <li>Vestibulum </li>
-        <li>Ac tristique </li>
-      </ul>
-    </li>
-    <li>Faucibus </li>
-    <li>Aenean </li>
-    <li>Eget </li>
-  </ul>
+
+<!--<div class="row mt-1">
+<div class="col-xs-12">
+  <h2>Widgets</h2>
+</div>
+</div>-->
+
+<div class="row mt-2" style="margin: 2rem 0 0 0">
+<div class="col-xs-12 col-md-4">
+  <div class="dashboard-widget">
+    <div class="text-xs-center" id="example-caption-4">Calculating Course&hellip; 75%</div>
+    <progress class="progress" value="75" max="100" aria-describedby="example-caption-4"></progress>
+
+  </div>
+</div>
+<div class="col-xs-12 col-md-8">
+  <div class="dashboard-widget">
+    <table class="table xtable-inverse">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Rank</th>
+          <th>Shirt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>Red</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>Blue</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td>Larry</td>
+          <td>the Bird</td>
+          <td>Yellow</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 </div>
-<div class="col-xs-9 col-md-10 col-xl-11">
-  <h2 class="mt-1 dashboard-widget">Widgets</h2>
 
-  <div class="row mt-2">
-    <div class="col-xs-12 col-md-4 dashboard-widget">First column widget</div>
-    <div class="col-xs-12 col-md-4 dashboard-widget">Second column widget</div>
-    <div class="col-xs-12 col-md-4 dashboard-widget">Third column widget</div>
-  </div>
+<div class="row mt-2" style="margin: 2rem 0 0 0">
+<div class="col-xs-12">
+    <div class="dashboard-widget">
+    <h2>Protected Quote</h2>
+    <p>The quote below is pulled from an auth-only API</p>
 
-  <div class="row mt-2">
-    <div class="col-xs-12 col-lg-6 offset-lg-3 dashboard-widget">
-      <h2>Protected Quote</h2>
-      <p>The quote below is pulled from an auth-only API</p>
-
-      <protected-quote>Protected Quote...</protected-quote>
-      
+    <protected-quote></protected-quote>
     </div>
   </div>
 </div>

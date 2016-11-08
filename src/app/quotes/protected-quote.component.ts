@@ -11,6 +11,7 @@ import { QuotesService } from './quotes.service';
 })
 export class ProtectedQuoteComponent implements OnInit {
   running: boolean = false;
+  showStructure: boolean = false;
   quote: Quote = null;
 
   constructor(private quotesService: QuotesService) { }

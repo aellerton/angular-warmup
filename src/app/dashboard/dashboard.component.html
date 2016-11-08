@@ -1,15 +1,54 @@
+<div class="row" style="margin: 0">
+<div class="hidden-sm-down col-md-2 col-xl-1 left-rail" style="height: 100vh; padding: 0">
+
+  <nav class="navbar navbar-full navbar-dark rem-bg-primary" style="background: #1B1C1B">
+    <a class="navbar-brand" routerLink="/dashboard" >Helm</a>
+
+    <!--<div class="nav navbar-nav float-xs-right">
+      <a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Main</a>
+      <a class="nav-item nav-link" routerLink="/dashboard/profile" routerLinkActive="active">Profile</a>
+      <a class="nav-item nav-link" routerLink="/logout" routerLinkActive="active">Logout
+            <img alt="avatar" src="http://placekitten.com/g/32/32">
+      </a>
+        
+    </div>-->
+  </nav>
+  
+  <ul class="list-unstyled">
+    <li>Warp Core </li>
+    <li>Singularity Generator </li>
+    <li>Antimatter Integrity</li>
+    <li>Monitoring
+      <ul>
+        <li><span class="float-xs-right tag tag-primary">812</span> Tribbles </li>
+        <li><span class="float-xs-right tag tag-warning">101</span> Spacetime Anomalies </li>
+        <li><span class="float-xs-right tag tag-default">59</span> Tachyon Emissions </li>
+        <li><span class="float-xs-right tag tag-default">24</span> Hails </li>
+        
+      </ul>
+    </li>
+    <li>Engineering </li>
+    <li>Stellar Cartography </li>
+  </ul>
+</div>
+
+<div class="col-xs-12 col-md-10 col-xl-11" style="padding: 0">
+
 <nav class="navbar navbar-full navbar-dark rem-bg-primary" style="background: #3F403E">
   <a class="navbar-brand" routerLink="/dashboard" >Dashboard</a>
 
   <div class="nav navbar-nav float-xs-right">
     <a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Main</a>
-    <a class="nav-item nav-link" routerLink="/dashboard/profile" routerLinkActive="active">Profile
-      <img alt="avatar" src="http://placekitten.com/g/24/24">
-    </a>
-    <a class="nav-item nav-link" routerLink="/logout" routerLinkActive="active">Logout</a>
-    
+    <a class="nav-item nav-link" routerLink="/dashboard/profile" routerLinkActive="active">Profile</a>
+    <a class="nav-item nav-link" routerLink="/logout" routerLinkActive="active">Logout
+        <!--<img alt="avatar" src="http://placekitten.com/g/32/32">-->
+        </a>
+      
   </div>
 </nav>
-<div class="" style="background: #eee">
+
+<div class="">
 <router-outlet></router-outlet>
+</div>
+
 </div>

@@ -48,11 +48,11 @@ export class AuthService {
   constructor(private http: Http) { 
 
     this.authenticationStarted.subscribe((id_token) => {
-      if (id_token) {
-        console.log("decoded jwt:", this.jwtHelper.decodeToken(id_token));
-      }
+      // if (id_token) {
+      //   console.log("decoded jwt:", this.jwtHelper.getDecodedToken(id_token));
+      // }
       console.log("authenticationStarted event", id_token)
-      localStorage.setItem('id_token', id_token);
+      this.setToken(id_token);
       //this.isLoggedIn = true;
       this.authenticationOk.next(id_token);
     })
@@ -70,15 +70,34 @@ export class AuthService {
     })
   }
 
-  decodeToken(): any {
-    return this.jwtHelper.decodeToken(localStorage.getItem('id_token'));
-  }
-
   isLoggedIn(): boolean {
     // TODO: put some cache logic around this, like do the real check at most once a minute.
     // TODO: for that matter, put a timer to send an "expire" event.
     return tokenNotExpired();
   }
+
+  getUsername(): string {
+    let t = this.getToken();
+    if (t) {
+      return this.jwtHelper.decodeToken(t).username
+    }
+    return undefined;
+  }
+
+  setToken(v: string): string {
+    localStorage.setItem('id_token', v);
+    return v;
+  }
+
+  getToken(): string {
+    return localStorage.getItem('id_token');
+  }
+
+  getDecodedToken(): any {
+    return this.jwtHelper.decodeToken(this.getToken());
+  }
+
+  /*
   pretendLogin(): Observable<boolean> {
     // var headers = new Headers();
     // headers.append('Content-Type', 'application/json; charset=utf-8');
@@ -93,7 +112,7 @@ export class AuthService {
   pretendLogout(): void {
     // TODO this.isLoggedIn = false;
     this.authenticationEnded.next();
-  }
+  }*/
 
   login(username, password): Observable<boolean> {
     // TODO:
